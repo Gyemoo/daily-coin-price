@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: README Update
+name: update-weather
 
 # Controls when the workflow will run
 on:
@@ -36,6 +36,8 @@ jobs:
       - name: python 코드 실행
         run: |
           python update_weather.py
+        env: 
+          OPENWEATHER_API_KEY: ${{secrets.OPENWEATHER_API_KEY }}
 
       - name: 변경내용 push
         run: |
