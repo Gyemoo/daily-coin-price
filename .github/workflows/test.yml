@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: update-weather
+name: update-daily-coin-price
 
 # Controls when the workflow will run
 on:
   schedule:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  - cron : "*/5 * * * *"
+  - cron : "0 0 * * *" # 매일 아침 9시에 실행 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -35,9 +35,9 @@ jobs:
 
       - name: python 코드 실행
         run: |
-          python update_weather.py
+          python update_daily_coin_price.py
         env: 
-          OPENWEATHER_API_KEY: ${{secrets.OPENWEATHER_API_KEY }}
+          COINMARKETCAP_API_KEY: ${{secrets.COINMARKETCAP_API_KEY }}
 
       - name: 변경내용 push
         run: |
