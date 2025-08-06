@@ -45,5 +45,6 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
           git commit -m "업데이트 완료" || echo "No change"
+          git push
           
         
